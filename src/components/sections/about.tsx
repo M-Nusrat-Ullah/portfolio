@@ -53,7 +53,7 @@ export function About() {
           >
             <p>
               I&apos;m{" "}
-              <span className="text-foreground font-semibold">M. Nusrat Ullah</span>, a
+              <span className="text-foreground font-semibold">M Nusrat Ullah</span>, a
               Software Engineer based in Dhaka, Bangladesh, currently building large-scale
               telecom and AI systems at{" "}
               <a

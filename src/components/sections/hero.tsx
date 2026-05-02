@@ -30,7 +30,7 @@ export function Hero() {
             <div className="absolute inset-0 rounded-full bg-primary/30 blur-xl" />
             <Image
               src="/avatar.jpg"
-              alt="M. Nusrat Ullah"
+              alt="M Nusrat Ullah"
               width={120}
               height={120}
               priority
@@ -61,7 +61,7 @@ export function Hero() {
         >
           Hi, I&apos;m{" "}
           <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            M. Nusrat Ullah
+            M Nusrat Ullah
           </span>
         </motion.h1>
 
