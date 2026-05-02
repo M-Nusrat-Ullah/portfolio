@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Download, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
@@ -78,6 +78,12 @@ export function Hero() {
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg">
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <Download className="mr-2 h-4 w-4" />
+              Download Resume
+            </a>
+          </Button>
+          <Button asChild variant="ghost" size="lg">
             <Link href="#contact">Contact Me</Link>
           </Button>
         </motion.div>

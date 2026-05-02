@@ -42,7 +42,7 @@ export function Projects() {
                       src={featured.image}
                       alt={featured.title}
                       fill
-                      className="object-cover object-top"
+                      className="object-contain p-6 bg-muted/40"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                       priority
                     />
@@ -119,7 +119,7 @@ export function Projects() {
                       src={src}
                       alt={`${featured.title} screenshot ${i + 1}`}
                       fill
-                      className="object-cover object-top group-hover:scale-105 transition-transform"
+                      className="object-contain p-2 bg-muted/40 group-hover:scale-105 transition-transform"
                       sizes="(max-width: 1024px) 50vw, 25vw"
                     />
                   </motion.div>
