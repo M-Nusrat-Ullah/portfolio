@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,7 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://nusrat-ullah.vercel.app"; // we'll update after deploy
+const SITE_URL = "https://nusrat-ullah.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -47,7 +49,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: "M. Nusrat Ullah — Software Engineer | AI/ML & MLOps",
     description:
-      "Building production RAG, LLM, and Kubernetes systems. AI/ML engineer with research background and 1200+ competitive programming problems solved.",
+      "Building production RAG, LLM, and Kubernetes systems. AI/ML engineer with research background and 1300+ competitive programming problems solved.",
     siteName: "M. Nusrat Ullah",
     images: [
       {
@@ -115,7 +117,7 @@ export default function RootLayout({
               name: "M. Nusrat Ullah",
               url: SITE_URL,
               image: `${SITE_URL}/og-image.png`,
-              jobTitle: "Junior Software Engineer",
+              jobTitle: "Software Engineer",
               worksFor: {
                 "@type": "Organization",
                 name: "Nybsys (Pvt) Ltd.",
@@ -156,6 +158,8 @@ export default function RootLayout({
             }),
           }}
         />
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
