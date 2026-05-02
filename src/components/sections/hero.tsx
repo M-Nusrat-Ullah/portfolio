@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Download, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -20,9 +21,28 @@ export function Hero() {
 
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 text-center">
         <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center mb-6"
+        >
+          <div className="relative">
+            <div className="absolute inset-0 rounded-full bg-primary/30 blur-xl" />
+            <Image
+              src="/avatar.jpg"
+              alt="M. Nusrat Ullah"
+              width={120}
+              height={120}
+              priority
+              className="relative rounded-full border-2 border-primary/40 shadow-xl object-cover w-28 h-28 sm:w-32 sm:h-32"
+            />
+          </div>
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.05 }}
         >
           <Badge variant="secondary" className="mb-6 text-xs">
             <span className="relative flex h-2 w-2 mr-2">
@@ -32,7 +52,7 @@ export function Hero() {
             Available for opportunities
           </Badge>
         </motion.div>
-
+        
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
