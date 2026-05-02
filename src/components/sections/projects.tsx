@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GitHubIcon } from "@/components/icons";
 import { projects } from "@/data/projects";
+import { ImageLightbox } from "@/components/image-lightbox";
 
 export function Projects() {
   const featured = projects.find((p) => p.featured);
@@ -37,14 +38,27 @@ export function Projects() {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image */}
                 <div className="relative aspect-video lg:aspect-auto lg:min-h-[420px] bg-muted overflow-hidden">
-                  {featured.image && (
-                    <Image
-                      src={featured.image}
+                  {featured.image && featured.gallery && (
+                    <ImageLightbox
+                      images={featured.gallery}
                       alt={featured.title}
-                      fill
-                      className="object-contain p-6 bg-muted/40"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      priority
+                      initialIndex={featured.gallery.indexOf(featured.image)}
+                      trigger={
+                        <button
+                          type="button"
+                          className="absolute inset-0 cursor-zoom-in group"
+                          aria-label="Open featured screenshot in lightbox"
+                        >
+                          <Image
+                            src={featured.image}
+                            alt={featured.title}
+                            fill
+                            className="object-contain p-6 bg-muted/40 group-hover:scale-[1.02] transition-transform"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            priority
+                          />
+                        </button>
+                      }
                     />
                   )}
                   <div className="absolute top-4 left-4">
@@ -103,7 +117,7 @@ export function Projects() {
               </div>
             </Card>
 
-            {/* Gallery */}
+            {/* Gallery with Lightbox */}
             {featured.gallery && featured.gallery.length > 1 && (
               <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-3">
                 {featured.gallery.map((src, i) => (
@@ -113,14 +127,32 @@ export function Projects() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.08 }}
-                    className="relative aspect-video rounded-lg overflow-hidden border border-border/50 group cursor-pointer"
                   >
-                    <Image
-                      src={src}
-                      alt={`${featured.title} screenshot ${i + 1}`}
-                      fill
-                      className="object-contain p-2 bg-muted/40 group-hover:scale-105 transition-transform"
-                      sizes="(max-width: 1024px) 50vw, 25vw"
+                    <ImageLightbox
+                      images={featured.gallery!}
+                      alt={`${featured.title} screenshots`}
+                      initialIndex={i}
+                      trigger={
+                        <button
+                          type="button"
+                          className="relative aspect-video w-full rounded-lg overflow-hidden border border-border/50 group cursor-zoom-in hover:border-primary/50 transition-colors"
+                          aria-label={`Open screenshot ${i + 1} in lightbox`}
+                        >
+                          <Image
+                            src={src}
+                            alt={`${featured.title} screenshot ${i + 1}`}
+                            fill
+                            className="object-contain p-2 bg-muted/40 group-hover:scale-105 transition-transform"
+                            sizes="(max-width: 1024px) 50vw, 25vw"
+                          />
+                          {/* Zoom-in hint overlay */}
+                          <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                            <span className="px-3 py-1.5 rounded-full bg-background/90 backdrop-blur-sm text-xs font-medium border border-border/40">
+                              🔍 Click to zoom
+                            </span>
+                          </div>
+                        </button>
+                      }
                     />
                   </motion.div>
                 ))}
