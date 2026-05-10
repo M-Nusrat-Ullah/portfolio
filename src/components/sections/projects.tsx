@@ -53,7 +53,7 @@ export function Projects() {
                             src={featured.image}
                             alt={featured.title}
                             fill
-                            className="object-contain p-6 bg-muted/40 group-hover:scale-[1.02] transition-transform"
+                            className="object-contain p-6 bg-muted/40 group-hover:scale-[1.02] transition-transform duration-300"
                             sizes="(max-width: 1024px) 100vw, 50vw"
                             priority
                           />
@@ -142,7 +142,7 @@ export function Projects() {
                             src={src}
                             alt={`${featured.title} screenshot ${i + 1}`}
                             fill
-                            className="object-contain p-2 bg-muted/40 group-hover:scale-105 transition-transform"
+                            className="object-contain p-2 bg-muted/40 group-hover:scale-105 transition-transform duration-300"
                             sizes="(max-width: 1024px) 50vw, 25vw"
                           />
                           {/* Zoom-in hint overlay */}
@@ -171,15 +171,26 @@ export function Projects() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
             >
-              <Card className="h-full hover:border-primary/40 transition-colors group">
+              <Card className="h-full overflow-hidden hover:border-primary/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
                 <CardContent className="p-6 flex flex-col h-full">
+                  {project.image && (
+                    <div className="relative aspect-video mb-4 rounded-lg overflow-hidden border border-border/40 bg-muted">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-contain p-2 group-hover:scale-[1.02] transition-transform duration-300"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
+                  )}
                   <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-sm text-primary font-medium mb-3">
                     {project.tagline}
                   </p>
-                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">
+                  <p className="text-sm text-muted-foreground/90 mb-4 leading-relaxed flex-1">
                     {project.description}
                   </p>
 
