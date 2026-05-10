@@ -49,6 +49,52 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "book-management",
+    title: "BookShelf — AI-Powered Book Management System",
+    tagline: "Polyglot microservice platform with AI search & recommendations",
+
+    description:
+      "A modern full-stack book management platform built with a polyglot microservice architecture. Features AI-powered natural language search, personalized recommendations, JWT authentication, and containerized deployment using React, Node.js, FastAPI, and MongoDB.",
+
+    highlights: [
+      "AI-powered natural language search using Ollama & Gemini",
+      "Personalized recommendation engine with LLM integration",
+      "Polyglot microservice architecture (React + Node.js + FastAPI)",
+      "JWT authentication with protected CRUD operations",
+      "Dockerized multi-service deployment workflow",
+      "Type-safe frontend/backend development with TypeScript",
+    ],
+
+    tech: [
+      "React 19",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "FastAPI",
+      "MongoDB",
+      "Docker",
+      "Ollama",
+      "Gemini API",
+      "TailwindCSS",
+      "Zustand",
+    ],
+
+    github: "https://github.com/M-Nusrat-Ullah/Book-Management",
+
+    image: "/screenshots/bm-booklist.png",
+
+    gallery: [
+      "/screenshots/bm-login.png",
+      "/screenshots/bm-register.png",
+      "/screenshots/bm-booklist.png",
+      "/screenshots/bm-addBook.png",
+      "/screenshots/bm-aiSearch.png",
+      "/screenshots/bm-aiRecommendation.png",
+    ],
+
+    featured: false,
+  },
+  {
     slug: "lstm-pso-ga",
     title: "LSTM Hyperparameter Optimization",
     tagline: "Undergraduate thesis — PSO & GA for neural network tuning",
@@ -77,20 +123,5 @@ export const projects: Project[] = [
     ],
     tech: ["C++", "Python", "Algorithms", "Data Structures"],
     github: "https://github.com/M-Nusrat-Ullah/CP-Solutions-and-Templates",
-  },
-  {
-    slug: "book-management",
-    title: "Book Management System",
-    tagline: "Full-stack CRUD application with auth",
-    description:
-      "A full-stack book management application built during my internship at Spring Rain. Implements user authentication, CRUD operations, and a clean REST API.",
-    highlights: [
-      "JWT-based authentication",
-      "RESTful CRUD API",
-      "Built collaboratively in an Agile team",
-      "Practiced code reviews & version control",
-    ],
-    tech: ["JavaScript", "Node.js", "React.js", "MongoDB", "REST API"],
-    github: "https://github.com/M-Nusrat-Ullah/Book-Management",
-  },
+  }
 ];

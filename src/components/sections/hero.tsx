@@ -98,7 +98,7 @@ export function Hero() {
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="/M_Nusrat_Ullah_Resume_Main.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/M_Nusrat_Ullah_Resume_v2.pdf" target="_blank" rel="noopener noreferrer">
               <Download className="mr-2 h-4 w-4" />
               Download Resume
             </a>
