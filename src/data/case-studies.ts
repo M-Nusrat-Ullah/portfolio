@@ -99,7 +99,7 @@ export const caseStudies: CaseStudy[] = [
       "Helm chart with CI/CD testing",
     ],
     problem:
-      "Run a complete 5G standalone core as a production service on Kubernetes, with each 3GPP interface on its own network and proper routing for the user plane.",
+      "Run a full 5G standalone core as a production system on Kubernetes, not a single-host install, with each network interface isolated and the user plane routed directly to the internet.",
     did: [
       "Deployed the full Open5GS SA network-function set on Kubernetes: indirect SBI through an SCP, a CUPS-split UPF, and multi-gNB support.",
       "Segmented each interface onto its own network with Flannel, OVS and MACVLAN.",

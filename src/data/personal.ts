@@ -18,7 +18,7 @@ export const personal: PersonalProject[] = [
     subtitle: "Production-grade bare-metal Kubernetes for telco and edge",
     period: "2025 – 2026",
     status: "In progress",
-    body: "A solo build with a layered L0 → L6 design: kubeadm 1.34 and containerd 2.x; Cilium 1.19 with kube-proxy replacement, Hubble, BGP, LB-IPAM and Gateway API; Kyverno, Flux, GHCR and cosign; three deploy shapes (lab single-node, edge site, HA bare metal); opt-in Multus; secretbox encryption at rest. Ansible roles are tested with Molecule behind pre-commit gates, and a hook blocks employer reference material from ever being committed.",
+    body: "A solo build with a layered L0 → L6 design: kubeadm 1.34 and containerd 2.x; Cilium 1.19 with kube-proxy replacement, Hubble, BGP, LB-IPAM and Gateway API; Kyverno, Flux, GHCR and cosign; three deploy shapes (lab single-node, edge site, HA bare metal); opt-in Multus; secretbox encryption at rest. Ansible roles are tested with Molecule behind pre-commit gates.",
     progress:
       "L0–L1.2 done (OS prep including a CIS module blacklist, containerd, kubeadm bootstrap). L2 Cilium is designed and the install is next. 86 commits and 30+ ADRs so far.",
     tags: ["Kubernetes", "Cilium", "Flux", "Kyverno", "Ansible", "Molecule"],
@@ -31,7 +31,7 @@ export const personal: PersonalProject[] = [
     status: "Design stage",
     body: "I lead the architecture: 4V/6I outputs, a 0.025% accuracy target, Zynq UltraScale+ on Yocto, gRPC/TLS 1.3 control, IEC 61850 GOOSE/SV, PTPv2/IRIG-B timing, and a cloud-native server (FastAPI, React, Postgres, MinIO, Keycloak). I locked 26 decisions (AXI register map, 64-bit TAI timebase, 48-bit NCO, Ed25519-signed calibration, RAUC A/B updates), kept 5 hardware-dependent choices open as frameworks, and wrote phase briefs for phases 1–12.",
     progress:
-      "Design phase done; Phase 1 implementation is next, and a buyer has committed. I own software and firmware (including FPGA); two colleagues own the hardware.",
+      "Design phase done; Phase 1 implementation is next, and a buyer has committed. I own software and firmware (including FPGA); two hardware partners own the hardware design.",
     tags: ["Zynq", "Yocto", "IEC 61850", "PTPv2", "gRPC"],
   },
   {

@@ -26,8 +26,8 @@ export const research: ResearchItem[] = [
       "Locked 21 design decisions in a master plan: model, PSO/GA search, risk register and paper skeleton.",
       "Two validation tracks: operator weak labels from availability, outage and RAB columns, plus labelled fault injection on my own 4G LTE testbed.",
     ],
-    progress: "Design complete and title locked. Implementation and results are not yet recorded.",
-    next: "Implementation and first results. Target venue: IEEE Access, with IEEE WCNC / GLOBECOM workshops as fallback.",
+    progress: "Design complete; implementation is next.",
+    next: "Model implementation and PSO/GA search on the operator data. Target venue: IEEE Access (IEEE WCNC / GLOBECOM workshops as fallback).",
   },
   {
     title: "Worth the Tokens? LLM-preference rewards vs classical exploration bonuses",
@@ -41,9 +41,8 @@ export const research: ResearchItem[] = [
       "Pre-registered spec: 4 MiniGrid environments in fixed order, 6 conditions × 10 seeds (240 runs), CleanRL-anchored PPO, a Bradley–Terry reward model with pass/fail gates, rliable IQM statistics, and kill criteria and failure rules written in advance.",
       "Consolidated into a self-contained spec v3 (Nov 2026).",
     ],
-    progress:
-      "Session S1 (PPO concepts) is done; S2 had not started as of 16 Nov 2026. Budget: about 8 hours a week alongside full-time work.",
-    next: "S2: a reference PPO implementation checked against an SB3 sanity oracle. Aim: a NeurIPS 2027 workshop.",
+    progress: "Concept phase complete; the PPO baseline implementation is next.",
+    next: "A reference PPO implementation validated against an independent baseline. Target: a NeurIPS 2027 workshop.",
   },
 ];
 
