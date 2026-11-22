@@ -4,9 +4,9 @@ import { credentials, education, type Credential } from "@/data/education";
 function CredentialCard({ c }: { c: Credential }) {
   return (
     <li className="rounded-xl border border-border bg-card p-5">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <h4 className="font-semibold">{c.title}</h4>
-        <p className="text-sm text-muted-foreground">{c.period}</p>
+      <div className="flex items-baseline justify-between gap-4">
+        <h4 className="min-w-0 font-semibold">{c.title}</h4>
+        <p className="shrink-0 whitespace-nowrap text-sm text-muted-foreground">{c.period}</p>
       </div>
       {c.institution && <p className="mt-0.5 text-sm text-primary">{c.institution}</p>}
       {c.details.length > 0 && (

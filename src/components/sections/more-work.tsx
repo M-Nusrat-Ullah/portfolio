@@ -6,11 +6,16 @@ import { moreWork } from "@/data/more-work";
 export function MoreWork() {
   return (
     <Section id="more-work" eyebrow="More work" title="Other company work at Nybsys" muted>
-      <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-6">
         {moreWork.map((w) => {
-          const wide = w.body.length > 3;
+          const wide = w.layout === "full";
           return (
-            <li key={w.title} className={cn(wide && "md:col-span-2")}>
+            <li
+              key={w.title}
+              className={cn(
+                wide ? "md:col-span-2 lg:col-span-6" : w.layout === "half" ? "lg:col-span-3" : "lg:col-span-2"
+              )}
+            >
               <article className="flex h-full flex-col rounded-xl border border-border bg-card p-5">
                 <div className="flex flex-wrap items-center gap-2">
                   <StatusBadge status={w.status} />

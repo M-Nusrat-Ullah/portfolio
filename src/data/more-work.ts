@@ -9,6 +9,8 @@ export type WorkItem = {
   result?: string;
   note?: string;
   tags: string[];
+  /** Grid width on large screens: "full" = own row, "half" = two per row. Default: three per row. */
+  layout?: "full" | "half";
 };
 
 export const moreWork: WorkItem[] = [
@@ -23,7 +25,7 @@ export const moreWork: WorkItem[] = [
       "Built a host-level Kairos CLI so Grameenphone operators can view and control AAA and CA (status, version, IMSI lookup, logs, vSIM add, certificate creation) without SSH access to the nodes.",
     ],
     result:
-      "Delivered for Grameenphone UAT on 18 Nov 2026, with client-facing output scrubbed of internal host and platform names.",
+      "Delivered for Grameenphone UAT in Nov 2026.",
     tags: ["TACACS+", "PAM", "CLI", "Access control"],
   },
   {
@@ -54,16 +56,6 @@ export const moreWork: WorkItem[] = [
     tags: ["5G NR", "NG Setup", "Open5GS", "Log analysis"],
   },
   {
-    title: "IoT over private 5G",
-    subtitle: "End-to-end demo on Athena Core",
-    period: "Mar 2026",
-    status: "Demo",
-    body: [
-      "An IoT dashboard fed through a CPE attached to the Athena Core 5G radio, using a SIM I programmed with PySim.",
-    ],
-    tags: ["5G SA", "PySim", "IoT"],
-  },
-  {
     title: "Core, IMS and RAN field work",
     subtitle: "Two years of hands-on delivery before product ownership",
     period: "2023 – 2025",
@@ -78,7 +70,19 @@ export const moreWork: WorkItem[] = [
       "Supporting role on the Aegis Security Gateway: IPsec dynamic-IP pool tests and an XDP firewall stress test with DPDK pktgen.",
     ],
     note: "Evidence for this period is field delivery: code and configs I produced were committed by a senior engineer.",
+    layout: "full",
     tags: ["Open5GS", "IMS / VoLTE", "PyHSS", "srsRAN", "O-RAN", "IPsec"],
+  },
+  {
+    title: "IoT over private 5G",
+    subtitle: "End-to-end demo on Athena Core",
+    period: "Mar 2026",
+    status: "Demo",
+    body: [
+      "An IoT dashboard fed through a CPE attached to the Athena Core 5G radio, using a SIM I programmed with PySim.",
+    ],
+    layout: "half",
+    tags: ["5G SA", "PySim", "IoT"],
   },
   {
     title: "Smart water metering",
@@ -88,6 +92,7 @@ export const moreWork: WorkItem[] = [
     body: [
       "Maintained the water-meter software for several months and fixed bugs until it was stable, then handed it over to a junior engineer.",
     ],
+    layout: "half",
     tags: ["Maintenance", "IoT"],
   },
 ];
