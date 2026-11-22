@@ -25,7 +25,7 @@ export const personal: PersonalProject[] = [
       "L0–L1.2 done (OS prep including a CIS module blacklist, containerd, kubeadm bootstrap). L2 Cilium is designed and the install is next. 86 commits and 30+ ADRs so far.",
     tags: ["Kubernetes", "Cilium", "Flux", "Kyverno", "Ansible", "Molecule"],
     repo: "https://github.com/M-Nusrat-Ullah/k8s-baremetal-platform",
-    showRepo: false, // hidden until the repo history is cleaned; set to true to re-enable
+    showRepo: true, // set to false to hide the repository link
   },
   {
     title: "Protection relay test set",
