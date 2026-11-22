@@ -1,146 +1,98 @@
-"use client";
-
-import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Download, Mail } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, FileText, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Container } from "@/components/container";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
+import { availableCvs } from "@/lib/cv";
+import { links, profile } from "@/data/site";
+
+const facts = [
+  { term: "Aegis AAA", detail: "Product lead · live in Grameenphone production" },
+  { term: "Athena Core", detail: "5G SA core on Kubernetes, built end to end" },
+  { term: "Research", detail: "MSc CSE (AI/ML) · two projects in progress" },
+];
 
 export function Hero() {
+  const cvs = availableCvs();
+
   return (
-    <section
-      id="hero"
-      className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden"
-    >
-      {/* Background gradient blob */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-3xl opacity-50" />
-      </div>
+    <section aria-labelledby="hero-title" className="border-b border-border/60">
+      <Container className="py-14 sm:py-20">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
+          <Image
+            src="/avatar.jpg"
+            alt={`Portrait of ${profile.name}`}
+            width={128}
+            height={128}
+            priority
+            className="h-24 w-24 shrink-0 rounded-full border border-border object-cover sm:h-32 sm:w-32"
+          />
+          <div className="max-w-3xl">
+            <h1 id="hero-title" className="text-4xl font-bold tracking-tight sm:text-5xl">
+              {profile.name}
+            </h1>
+            <p className="mt-2 text-xl font-medium text-primary sm:text-2xl">{profile.headline}</p>
+            <p className="mt-4 text-lg text-foreground sm:text-xl">{profile.oneLiner}</p>
+            <p className="mt-3 text-base text-muted-foreground">{profile.intro}</p>
 
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="flex justify-center mb-6"
-        >
-          <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-primary/30 blur-xl" />
-            <Image
-              src="/avatar.jpg"
-              alt="M Nusrat Ullah"
-              width={120}
-              height={120}
-              priority
-              className="relative rounded-full border-2 border-primary/40 shadow-xl object-cover w-28 h-28 sm:w-32 sm:h-32"
-            />
+            <div className="mt-7 flex flex-wrap gap-2.5">
+              {cvs.map((cv, i) => (
+                <Button key={cv.href} asChild variant={i === 0 ? "default" : "outline"} className="h-10 px-4">
+                  <a href={cv.href} target="_blank" rel="noopener noreferrer">
+                    <FileText aria-hidden="true" />
+                    {cv.label}
+                    <span className="sr-only"> (PDF, opens in a new tab)</span>
+                  </a>
+                </Button>
+              ))}
+              <Button asChild variant={cvs.length ? "outline" : "default"} className="h-10 px-4">
+                <a href={links.github} target="_blank" rel="noopener noreferrer">
+                  <GitHubIcon aria-hidden="true" />
+                  GitHub
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="h-10 px-4">
+                <a href={links.linkedin} target="_blank" rel="noopener noreferrer">
+                  <LinkedInIcon aria-hidden="true" />
+                  LinkedIn
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="h-10 px-4">
+                <a href={`mailto:${links.email}`}>
+                  <Mail aria-hidden="true" />
+                  Email
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="h-10 px-4">
+                <a href={links.whatsapp} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle aria-hidden="true" />
+                  WhatsApp
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </Button>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.05 }}
-        >
-          <Badge variant="secondary" className="mb-6 text-xs">
-            <span className="relative flex h-2 w-2 mr-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-            </span>
-            Available for opportunities
-          </Badge>
-        </motion.div>
-        
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4"
-        >
-          Hi, I&apos;m{" "}
-          <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            M Nusrat Ullah
-          </span>
-        </motion.h1>
+        <dl className="mt-12 grid gap-4 sm:grid-cols-3">
+          {facts.map((f) => (
+            <div key={f.term} className="rounded-xl border border-border bg-card p-4">
+              <dt className="text-sm font-semibold">{f.term}</dt>
+              <dd className="mt-1 text-sm text-muted-foreground">{f.detail}</dd>
+            </div>
+          ))}
+        </dl>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl sm:text-2xl text-muted-foreground mb-2 font-medium"
-        >
-          Software Engineer · AI/ML · MLOps
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="max-w-2xl mx-auto text-base sm:text-lg text-muted-foreground mb-8"
-        >
-          I build production-grade RAG, LLM, and Kubernetes systems. Currently
-          engineering scalable solutions at{" "}
-          <span className="text-foreground font-medium">Nybsys</span>, while
-          pursuing an MSc in AI/ML.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-wrap items-center justify-center gap-3 mb-8"
-        >
-          <Button asChild size="lg">
-            <Link href="#projects">
-              View Projects <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button asChild variant="outline" size="lg">
-            <a href="/M_Nusrat_Ullah_Resume_v3.pdf" target="_blank" rel="noopener noreferrer">
-              <Download className="mr-2 h-4 w-4" />
-              Download Resume
-            </a>
-          </Button>
-          <Button asChild variant="ghost" size="lg">
-            <Link href="#contact">Contact Me</Link>
-          </Button>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex items-center justify-center gap-5"
-        >
-          <Link
-            href="https://github.com/M-Nusrat-Ullah"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-muted-foreground hover:text-primary transition-colors"
-          >
-            <GitHubIcon className="h-5 w-5" />
+        <nav aria-label="Jump to" className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <Link href="#featured" className="inline-flex items-center gap-1 font-medium text-primary hover:underline">
+            Hiring? Start with the featured work <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
-          <Link
-            href="https://www.linkedin.com/in/nusrat-ullah-tahmid"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-muted-foreground hover:text-primary transition-colors"
-          >
-            <LinkedInIcon className="h-5 w-5" />
+          <Link href="#research" className="inline-flex items-center gap-1 font-medium text-primary hover:underline">
+            Academic? Start with the research <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
-          <Link
-            href="mailto:nusrat.ullah.tahmid@gmail.com"
-            aria-label="Email"
-            className="text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Mail className="h-5 w-5" />
-          </Link>
-        </motion.div>
-      </div>
+        </nav>
+      </Container>
     </section>
   );
 }

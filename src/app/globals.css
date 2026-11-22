@@ -48,8 +48,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.21 0.006 285.885);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.606 0.25 292.717); /* Violet 500 */
-  --primary-foreground: oklch(0.969 0.016 293.756);
+  --primary: oklch(0.785 0.115 295); /* Violet 300-400: >= 7:1 on background */
+  --primary-foreground: oklch(0.141 0.005 285.823);
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.274 0.006 286.033);
@@ -59,7 +59,7 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.606 0.25 292.717);
+  --ring: oklch(0.785 0.115 295);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -67,12 +67,12 @@
   --chart-5: oklch(0.645 0.246 16.439);
   --sidebar: oklch(0.21 0.006 285.885);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.606 0.25 292.717);
+  --sidebar-primary: oklch(0.785 0.115 295);
   --sidebar-primary-foreground: oklch(0.969 0.016 293.756);
   --sidebar-accent: oklch(0.274 0.006 286.033);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.606 0.25 292.717);
+  --sidebar-ring: oklch(0.785 0.115 295);
 }
 
 @theme inline {
@@ -105,7 +105,15 @@
     @apply border-border outline-ring/50;
   }
   html {
-    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
   }
   body {
     @apply bg-background text-foreground antialiased;
