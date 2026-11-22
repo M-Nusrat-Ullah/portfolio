@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { Container } from "@/components/container";
 
 type Props = {
   id: string;
@@ -16,7 +17,7 @@ export function Section({ id, eyebrow, title, description, muted, children }: Pr
       aria-labelledby={`${id}-title`}
       className={cn("scroll-mt-16 py-16 sm:py-20", muted && "bg-muted/40")}
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <Container>
         <header className="mb-10 max-w-3xl">
           {eyebrow && (
             <p className="text-sm font-semibold uppercase tracking-wider text-primary">{eyebrow}</p>
@@ -29,7 +30,7 @@ export function Section({ id, eyebrow, title, description, muted, children }: Pr
           )}
         </header>
         {children}
-      </div>
+      </Container>
     </section>
   );
 }

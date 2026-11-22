@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AlertTriangle, ArrowLeft, ArrowRight } from "lucide-react";
 import { StatusBadge, TagList } from "@/components/status-badge";
+import { Container } from "@/components/container";
 import { CaseStudyDiagram } from "@/components/case-study/diagrams";
 import { caseStudies, type CaseStudy } from "@/data/case-studies";
 
@@ -31,7 +32,8 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
   const next = caseStudies[(index + 1) % caseStudies.length];
 
   return (
-    <article className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+    <Container as="article" className="py-10 sm:py-14">
+      <div className="max-w-4xl">
       <Link href="/#featured" className="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline">
         <ArrowLeft className="h-4 w-4" aria-hidden="true" /> All work
       </Link>
@@ -119,6 +121,7 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
           <span className="mt-1 block font-semibold">{next.title}</span>
         </Link>
       </nav>
-    </article>
+      </div>
+    </Container>
   );
 }

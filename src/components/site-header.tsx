@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Container } from "@/components/container";
 import { navLinks, profile } from "@/data/site";
 
 export function SiteHeader() {
@@ -18,7 +19,7 @@ export function SiteHeader() {
       >
         Skip to content
       </a>
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <Container className="flex h-14 items-center justify-between">
         <Link href="/" className="font-semibold tracking-tight hover:text-primary">
           {profile.name}
         </Link>
@@ -50,23 +51,23 @@ export function SiteHeader() {
             {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
           </Button>
         </div>
-      </div>
+      </Container>
 
       {open && (
         <nav id="mobile-nav" aria-label="Main" className="border-t border-border/60 lg:hidden">
-          <ul className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6">
+          <Container as="ul" className="flex flex-col py-2">
             {navLinks.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block rounded-md px-2 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground"
+                  className="block rounded-md py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground"
                 >
                   {l.label}
                 </Link>
               </li>
             ))}
-          </ul>
+          </Container>
         </nav>
       )}
     </header>

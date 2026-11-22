@@ -1,13 +1,14 @@
 import { Mail } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { links, profile } from "@/data/site";
+import { Container } from "@/components/container";
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="border-t border-border/60">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row sm:px-6 lg:px-8">
+      <Container className="flex flex-col items-start justify-between gap-4 py-8 sm:flex-row sm:items-center">
         <p className="text-sm text-muted-foreground">
           © {year} {profile.name}
         </p>
@@ -31,7 +32,7 @@ export function Footer() {
             </a>
           </li>
         </ul>
-      </div>
+      </Container>
     </footer>
   );
 }
