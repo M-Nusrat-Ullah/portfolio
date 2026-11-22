@@ -8,7 +8,7 @@ function CredentialCard({ c }: { c: Credential }) {
         <h4 className="font-semibold">{c.title}</h4>
         <p className="text-sm text-muted-foreground">{c.period}</p>
       </div>
-      <p className="mt-0.5 text-sm text-primary">{c.institution}</p>
+      {c.institution && <p className="mt-0.5 text-sm text-primary">{c.institution}</p>}
       {c.details.length > 0 && (
         <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
           {c.details.map((d) => (

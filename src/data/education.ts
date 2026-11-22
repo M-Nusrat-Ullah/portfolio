@@ -2,7 +2,7 @@ import { links } from "./site";
 
 export type Credential = {
   title: string;
-  institution: string;
+  institution?: string;
   period: string;
   details: string[];
   links?: { label: string; href: string }[];
@@ -32,8 +32,7 @@ export const education: Credential[] = [
 export const credentials: Credential[] = [
   {
     title: "IELTS Academic: 7.0 overall (C1)",
-    institution: "Test taken Nov 2026",
-    period: "2026",
+    period: "Nov 2026",
     details: [],
   },
   {

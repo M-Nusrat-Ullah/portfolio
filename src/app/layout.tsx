@@ -50,7 +50,6 @@ const personJsonLd = {
   name: profile.name,
   url: SITE_URL,
   image: `${SITE_URL}/avatar.jpg`,
-  jobTitle: "Junior RAN Integration and Solution Engineer",
   worksFor: { "@type": "Organization", name: "Nybsys (Pvt.) Ltd.", url: "https://nybsys.com" },
   alumniOf: [
     { "@type": "CollegeOrUniversity", name: "Daffodil International University" },

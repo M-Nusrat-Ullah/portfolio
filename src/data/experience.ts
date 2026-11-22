@@ -1,4 +1,5 @@
 export type Experience = {
+  /** A description of the role, not an official job title. */
   role: string;
   company: string;
   companyUrl?: string;
@@ -10,7 +11,7 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    role: "Junior RAN Integration and Solution Engineer",
+    role: "RAN integration, 5G core and AAA product lead",
     company: "Nybsys (Pvt.) Ltd.",
     companyUrl: "https://nybsys.com/",
     location: "Dhaka, Bangladesh",
@@ -20,7 +21,6 @@ export const experience: Experience[] = [
     points: [
       "2026: product lead for Aegis AAA, live in Grameenphone production; KPI owner for the Hermes NMS PM pipeline; Kairos access CLI delivered for Grameenphone UAT; AegisCA radio certificate batches.",
       "Dec 2025 – 2026: built Athena Core, a production 5G SA core on Kubernetes.",
-      "Jul 2026: prepared a 5G NSA client meeting for Banglalink (VEON) in one hour, separating tested from assumed claims (EN-DC gap).",
       "2025: live demo with Lanner at MWC 2025; core deployment and LMR noise reduction in Malaysia; defence private LTE (manpack); Grameenphone server hardening; Security Gateway test support.",
       "2023 – 2024: IMS and Open5GS integration from source, cloud cores on GCP and Azure, 5G base-station testing, O-RAN and NETCONF/YANG study.",
     ],

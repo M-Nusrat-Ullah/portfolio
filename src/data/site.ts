@@ -18,6 +18,7 @@ export const links = {
   linkedin: "https://www.linkedin.com/in/nusrat-ullah-tahmid",
   codeforces: "https://codeforces.com/profile/demonlord",
   leetcode: "https://leetcode.com/u/nusrat_ullah/",
+  whatsapp: "https://wa.me/8801521437885",
 };
 
 /** CV buttons render only when the matching PDF exists in /public. */

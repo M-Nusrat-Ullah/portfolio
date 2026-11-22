@@ -1,10 +1,11 @@
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { Section } from "@/components/section";
 import { links, profile } from "@/data/site";
 
 const methods = [
   { icon: Mail, label: "Email", value: links.email, href: `mailto:${links.email}`, external: false },
+  { icon: MessageCircle, label: "WhatsApp", value: "Message me on WhatsApp", href: links.whatsapp, external: true },
   { icon: GitHubIcon, label: "GitHub", value: "M-Nusrat-Ullah", href: links.github, external: true },
   { icon: LinkedInIcon, label: "LinkedIn", value: profile.name, href: links.linkedin, external: true },
   { icon: MapPin, label: "Location", value: profile.location, href: null, external: false },

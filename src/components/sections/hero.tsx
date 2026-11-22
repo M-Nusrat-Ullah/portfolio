@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, FileText, Mail } from "lucide-react";
+import { ArrowRight, FileText, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Container } from "@/components/container";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { availableCvs } from "@/lib/cv";
 import { links, profile } from "@/data/site";
@@ -17,7 +18,7 @@ export function Hero() {
 
   return (
     <section aria-labelledby="hero-title" className="border-b border-border/60">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
+      <Container className="py-14 sm:py-20">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start">
           <Image
             src="/avatar.jpg"
@@ -63,6 +64,13 @@ export function Hero() {
                   Email
                 </a>
               </Button>
+              <Button asChild variant="outline" className="h-10 px-4">
+                <a href={links.whatsapp} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle aria-hidden="true" />
+                  WhatsApp
+                  <span className="sr-only"> (opens in a new tab)</span>
+                </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -84,7 +92,7 @@ export function Hero() {
             Academic? Start with the research <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </nav>
-      </div>
+      </Container>
     </section>
   );
 }

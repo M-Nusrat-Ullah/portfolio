@@ -1,5 +1,5 @@
 /** Depth is rated by what shipped, not by exposure. */
-export type Depth = "production" | "field" | "built" | "working" | "research" | "designed";
+export type Depth = "production" | "field" | "built" | "working" | "research" | "designed" | "familiar";
 
 export type Skill = {
   name: string;
@@ -16,6 +16,7 @@ export const depthLegend: { depth: Depth; label: string }[] = [
   { depth: "built", label: "Built / working" },
   { depth: "research", label: "Research in progress" },
   { depth: "designed", label: "Designed, not built" },
+  { depth: "familiar", label: "Familiar" },
 ];
 
 export const skillGroups: SkillGroup[] = [
@@ -47,6 +48,8 @@ export const skillGroups: SkillGroup[] = [
       { name: "Go", depth: "production", depthLabel: "Production", proof: "Aegis AAA and its HA helper" },
       { name: "TypeScript / NestJS / React", depth: "production", depthLabel: "Production", proof: "Hermes NMS, Aegis AAA console" },
       { name: "Python, Bash", depth: "built", depthLabel: "Working", proof: "Automation scripts, RAG Q&A, RL projects" },
+      { name: "C++", depth: "built", depthLabel: "Strong", proof: "Competitive programming, 1300+ problems" },
+      { name: "C, Java, C#", depth: "familiar", depthLabel: "Familiar", proof: "Coursework" },
     ],
   },
   {

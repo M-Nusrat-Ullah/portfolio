@@ -9,6 +9,7 @@ const depthStyle: Record<Depth, string> = {
   working: "border-border bg-muted",
   research: "border-amber-600/40 bg-amber-500/10",
   designed: "border-violet-600/40 bg-violet-500/10",
+  familiar: "border-dashed border-border bg-transparent",
 };
 
 export function Skills() {
