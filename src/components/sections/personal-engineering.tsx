@@ -42,7 +42,7 @@ export function PersonalEngineering() {
                 </p>
                 <div className="mt-auto space-y-4 pt-4">
                   <TagList tags={p.tags} label={`${p.title} technologies`} />
-                  {p.repo && (
+                  {p.repo && p.showRepo !== false && (
                     <a
                       href={p.repo}
                       target="_blank"

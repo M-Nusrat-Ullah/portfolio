@@ -2,6 +2,7 @@ import { Mail, MapPin, MessageCircle } from "lucide-react";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { Section } from "@/components/section";
 import { links, profile } from "@/data/site";
+import { spansOddRemainder } from "@/lib/grid";
 
 const methods = [
   { icon: Mail, label: "Email", value: links.email, href: `mailto:${links.email}`, external: false },
@@ -15,7 +16,7 @@ export function Contact() {
   return (
     <Section id="contact" eyebrow="Contact" title="Get in touch" description="Email is the quickest way to reach me." muted>
       <ul className="grid max-w-3xl gap-3 sm:grid-cols-2">
-        {methods.map((m) => {
+        {methods.map((m, i) => {
           const inner = (
             <>
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
@@ -28,7 +29,7 @@ export function Contact() {
             </>
           );
           return (
-            <li key={m.label}>
+            <li key={m.label} className={spansOddRemainder(methods, i) ? "sm:col-span-2" : undefined}>
               {m.href ? (
                 <a
                   href={m.href}

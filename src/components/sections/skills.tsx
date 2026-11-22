@@ -1,5 +1,6 @@
 import { Section } from "@/components/section";
 import { cn } from "@/lib/utils";
+import { spansOddRemainder } from "@/lib/grid";
 import { depthLegend, skillGroups, type Depth } from "@/data/skills";
 
 const depthStyle: Record<Depth, string> = {
@@ -28,10 +29,14 @@ export function Skills() {
         ))}
       </ul>
       <div className="grid gap-6 md:grid-cols-2">
-        {skillGroups.map((g) => {
+        {skillGroups.map((g, i) => {
           const headingId = `skills-${g.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
           return (
-          <section key={g.title} aria-labelledby={headingId} className="rounded-xl border border-border bg-card p-5">
+          <section
+            key={g.title}
+            aria-labelledby={headingId}
+            className={cn("rounded-xl border border-border bg-card p-5", spansOddRemainder(skillGroups, i) && "md:col-span-2")}
+          >
             <h3 id={headingId} className="text-base font-semibold">
               {g.title}
             </h3>
